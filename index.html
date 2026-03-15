@@ -214,9 +214,13 @@ return;
 
 var appointment=date+" at "+time;
 
-localStorage.setItem("appointment",appointment);
-
-
+fetch("https://script.google.com/macros/s/AKfycbwi1d0pvVWWdj2FKMY9Bumm2HqcDEwuu5ibFf5AqlADaI_o_Ki8Y92Bh37Dg0mJsg23/exec",{
+method:"POST",
+body:JSON.stringify({
+date:date,
+time:time
+})
+});
 
 document.getElementById("popupDetails").innerHTML =
 date + " at " + time + "<br>Can't wait to celebrate your special day! 🎂";
